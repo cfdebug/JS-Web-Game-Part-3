@@ -1,47 +1,47 @@
 // Function Definitions
 function move(element){
-    element.style.position = 'fixed'
+    element.style.position = 'fixed';
  
     function moveToCoordinates(left, bottom) {
-        element.style.left = left + 'px'
-        element.style.bottom = bottom + 'px'
-    }
+        element.style.left = left + 'px';
+        element.style.bottom = bottom + 'px';
+    };
     return {
         to: moveToCoordinates
-    }
-}
+    };
+};
 
 function newImage(url){
-    let image = document.createElement('img')
+    let image = document.createElement('img');
     image.src = url;
-    document.body.append(image)
+    document.body.append(image);
     return image;
 }
 
 
 function newItem(url, inventory){
-    let item = newImage(url)
+    let item = newImage(url);
     item.addEventListener('click', () => {
-        item.remove()
-        let inventoryItem = document.createElement('img')
-        inventoryItem.src = url
-        inventory.append(inventoryItem)
+        item.remove();
+        let inventoryItem = document.createElement('img');
+        inventoryItem.src = url;
+        inventory.append(inventoryItem);
     })
-    return item
-}
+    return item;
+};
 
 
 function newInventory(){
-    let inventory = document.createElement('div')
-    inventory.style.width = '100%'
-    inventory.style.height = '100px'
-    inventory.style.display = 'flex'
-    inventory.style.flexDirection = 'row'
-    inventory.style.alignItems = 'center'
-    inventory.style.justifyContent = 'space-evenly'
-    inventory.style.border = '2px solid black'
-    inventory.style.backgroundColor = 'brown'
-    document.body.append(inventory)
+    let inventory = document.createElement('div');
+    inventory.style.width = '100%';
+    inventory.style.height = '100px';
+    inventory.style.display = 'flex';
+    inventory.style.flexDirection = 'row';
+    inventory.style.alignItems = 'center';
+    inventory.style.justifyContent = 'space-evenly';
+    inventory.style.border = '2px solid black';
+    inventory.style.backgroundColor = 'brown';
+    document.body.append(inventory);
 
     // Add Items internally to prevent global access
     move(newItem('assets/sword.png',inventory)).to(500, 555);
